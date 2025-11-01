@@ -20,7 +20,6 @@ color_dark_gray = "#505050"
 color_orange = "#FF9500"
 color_white = "white"
 
-#window setup
 window = tk.Tk()
 window.title("Calculator")
 window.resizable(False, False)
