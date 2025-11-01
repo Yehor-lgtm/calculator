@@ -1,5 +1,4 @@
 import tkinter as tk
-#import math
 
 button_values = [
     ["AC", "+/-", "%", "÷"], 
@@ -46,7 +45,6 @@ for row in range(row_count):
             button.config(foreground=color_white, background=color_dark_gray)
         button.grid(row=row+1, column=column)
         
-
 frame.pack()
 
 A = "0"
@@ -65,8 +63,11 @@ def remove_zero_decimal(num):
     else:
         num = round(num, 8)
     return str(num)
-        
 
+def sqrt(num):
+    num = float(num) ** 0.5
+    return str(num)
+    
 def button_clicked(value):
     global right_symbols, top_symbols, lable, A, B, operator
     
@@ -106,7 +107,6 @@ def button_clicked(value):
         elif value == "%":
             result = float(label["text"]) / 100
             label["text"] = remove_zero_decimal(result)
-        
     else:
         if value == ".":
             if value not in label["text"]:
@@ -117,8 +117,7 @@ def button_clicked(value):
             else:
                 label["text"] += value
         elif value == "√":
-            #res = math.sqrt(float(label["text"]))
-            res = float(label["text"]) ** 0.5
-            label["text"] = remove_zero_decimal(res)
+            res = sqrt(label["text"])
+            label["text"] = remove_zero_decimal(float(res))
 
 window.mainloop()
